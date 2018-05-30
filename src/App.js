@@ -8,20 +8,20 @@ import todosData from './todos.json'
 import TodoForm from './components/TodoForms'
 import Navegation from './components/Navigation'
 
-
 const TodoList = ({ todos, handleremoveTodo }) =>
   todos.map(todo => {
     const getBadgeContext = () => {
       switch (todo.priority) {
-      case "low":
-          return 'badge-success'   
-      case "medium":
-        return 'badge-warning'
-      case "high":
-        return 'badge-danger'
-      default :
-        return 'badge-default'
-    }}
+        case 'low':
+          return 'badge-success'
+        case 'medium':
+          return 'badge-warning'
+        case 'high':
+          return 'badge-danger'
+        default:
+          return 'badge-default'
+      }
+    }
 
     return (
       <div key={todo.id} className="card-deck col-md-4">

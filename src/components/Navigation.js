@@ -1,27 +1,26 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 // subcomente
-import Calculator from "./Calculator";
+import Calculator from './Calculator'
 
 class Navegation extends Component {
   static propTypes = {
-    countTask: PropTypes.number
+    countTask: PropTypes.number,
   }
 
   static defaultProps = {
-    countTask: 4
+    countTask: 4,
   }
-  
+
   constructor() {
-    super(); // Hereda todas las funcionalidades de React
+    super() // Hereda todas las funcionalidades de React
     this.state = {
-      count: 0
+      count: 0,
     }
-    this.handleCountClick = this.handleCountClick.bind(this);
+    this.handleCountClick = this.handleCountClick.bind(this)
   }
 
-
-/*
+  /*
   componentDidMount() {
     this.setState({
       count: 1
@@ -29,24 +28,23 @@ class Navegation extends Component {
   }
 */
   handleCountClick(e) {
-    if (e.target.id === "add") {
+    if (e.target.id === 'add') {
       this.setState({
-        count: this.state.count + 1
-      });
-    } else if (e.target.id === "subtrack" && this.state.count > 0) {
+        count: this.state.count + 1,
+      })
+    } else if (e.target.id === 'subtrack' && this.state.count > 0) {
       this.setState({
-        count: this.state.count - 1
-      });
+        count: this.state.count - 1,
+      })
     } else {
       this.setState({
-        count: 0
-      });
+        count: 0,
+      })
     }
   }
 
-
   render() {
-    const { countTask } = this.props;
+    const { countTask } = this.props
     return (
       <nav className="navbar navbar-dark bg-dark ">
         <a className="navbar-brand" href="/">
@@ -55,24 +53,24 @@ class Navegation extends Component {
             {countTask}
           </span>
         </a>
-      <div>
-        <button id="add" onClick={this.handleCountClick}>
-              +
-        </button>
-        <button id="subtrack" onClick={this.handleCountClick}>
-              -
-        </button>
-        <button id="result" onClick={this.handleCountClick}>
-              =
-        </button>
-        <button>{this.state.count}</button>
-      </div>
+        <div>
+          <button id="add" onClick={this.handleCountClick}>
+            +
+          </button>
+          <button id="subtrack" onClick={this.handleCountClick}>
+            -
+          </button>
+          <button id="result" onClick={this.handleCountClick}>
+            =
+          </button>
+          <button>{this.state.count}</button>
+        </div>
         <ul className="nav navbar-nav navbar-right">
           <Calculator />
         </ul>
       </nav>
-    );
+    )
   }
 }
 
-export default Navegation;
+export default Navegation
